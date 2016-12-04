@@ -1,0 +1,2 @@
+1. Window - Model info - Units - Format Decimical, mm; Precision 0,0mm
+2. View - Toolbars - Large Tool Set
