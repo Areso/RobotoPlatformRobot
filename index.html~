@@ -6,7 +6,7 @@ $(document).ready(function(){
     $("[name=speed]").change(function(){
 	//alert('hello world');
 	vspeed = $("[name=speed]").val();
-	vangle = $("[name=angle]").val();
+	vangle = $("[name=angle]").val()
 	alert(vspeed);
 	alert(vangle);	
         $.post("update2.php",
