@@ -1,5 +1,6 @@
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -7,8 +8,8 @@ $(document).ready(function(){
 	//alert('hello world');
 	vspeed = $("[name=speed]").val();
 	vangle = $("[name=angle]").val();
-	alert(vspeed);
-	alert(vangle);	
+	//alert(vspeed);
+	//alert(vangle);	
         $.post("update2.php",
         {
 
@@ -16,44 +17,78 @@ $(document).ready(function(){
           angle: vangle
         },
         function(data,status){
-        //    alert("Data: " + data + "\nStatus: " + status);
-        });
+            dataType: 'text';
+            //alert("Data: " + data + "\nStatus: " + status);
+        }, "text");
+	
+    });
+    $("[name=angle]").change(function(){
+	//alert('hello world');
+	vspeed = $("[name=speed]").val();
+	vangle = $("[name=angle]").val();
+	//alert(vspeed);
+	//alert(vangle);	
+        $.post("update2.php",
+        {
+
+          speed: vspeed,
+          angle: vangle
+        },
+        function(data,status){
+            //dataType: 'text';
+            //alert("Data: " + data + "\nStatus: " + status);
+        }, "text");
 	
     });
 });
 </script>
 </head>
 <body>
-example.com
-<table width="400px">
+
+<table width="400px" border="1">
 <tr>
-	<td>
+	<td bgcolor="red" style="width:50px">
 		R
 	</td>
-	<td>
+	<td bgcolor="grey" style="width:50px">
 		N
 	</td>
-	<td>
+	<td bgcolor="green" style="width:50px">
 		1
 	</td>
-	<td>
+	<td bgcolor="green" style="width:50px">
 		2
 	</td>
-	<td>
-		L
+	<td bgcolor="gray" style="width:10px">
+		
 	</td>
-	<td>
+	<td bgcolor="blue" style="width:100px">
+                <font color="white">L</font>
+	</td>
+        <td bgcolor="gray" style="width:10px">
 		N
 	</td>
-	<td>
+        <td bgcolor="green" style="width:100px">
 		R
 	</td>
 </tr>
+
+<tr>
+	<td colspan="4">
+		<input type="range" name="speed" min="0" max="100" step="1" value="40" style="width:200px;"> 
+</td>
+<td colspan="4">
+		<input type="range" name="angle" min="0" max="255" step="1" value="128" style="width:200px;">
+	</td>
+</tr>
+
 </table>
+<!--
 <form action="update2.php" method="post">
-<input type="range" name="speed" min="0" max="100" step="1" value="40"> 
-<input type="range" name="angle" min="0" max="255" step="1" value="128">
-<input type="submit" value="go">
+<input type="range" name="speed" min="0" max="100" step="1" value="40" style="width:200px;"> 
+<input type="range" name="angle" min="0" max="255" step="1" value="128" style="width:200px;">
+<input type="submit" value="go" style="visibility: hidden;">
 </form>
+-->
 </body>
 </html>
