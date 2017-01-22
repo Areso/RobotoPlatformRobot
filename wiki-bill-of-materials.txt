@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+Bill of materials
+</title>
+</head>
+<body>
+Bill of Materials
+<table>
+  <tr>
+    <th>Pos</th><th>Name</th><th>Price</th>
+  </tr>
+  <tr>
+    <th colspan="3" >Electronics</th>
+  </tr>
+  <tr>  
+    <td>1</td><td>Arduino Uno R3</td><td>$6</td>
+  </tr>
+  <tr>
+    <td>2</td><td>Raspberry Pi 3 model b</td><td>$38</td>
+  </tr>
+  <tr>
+    <td>3</td><td>Breadboard</td><td>$2</td>
+  </tr>
+  <tr>
+    <td>4</td><td>Jumpers (male-male, male-female)</td><td>$2</td>
+  </tr>
+  <tr>
+    <td>5</td><td>Webcam, model TBA</td><td>TBA</td>
+  </tr>
+  <tr>
+    <td>6</td><td>Powerbank, model TBA</td><td>TBA</td>
+  </tr>
+  <tr>
+    <td>7</td><td>Wireless Charger, TBA</td><td>TBA</td>
+  </tr>
+  <tr>
+    <td>8</td><td>Servos, TowerPro SG90, 3 pieces</td><td>$3</td>
+  </tr>
+  <tr>
+    <td>9</td><td>Brushed DC Motor, noname</td><td>$1</td>
+  </tr>
+  <!--<tr>
+    <td></td><td></td><td></td>
+  </tr>-->
+  <tr>
+    <td></td><td>Subtotal</td><td>$52</td>
+  </tr>
+  <tr>
+    <th colspan="3" >Mechanics</th>
+  </tr>
+  <tr>
+    <td>1</td><td>Plexiglass 20x20 cm</td><td>$2</td>
+  </tr>
+  <tr>
+    <td>2</td><td>1 cap from bottled water</td><td>$1</td>
+  </tr>
+  <tr>
+    <td>3</td><td>1 insulating tape</td><td>$1</td>
+  </tr>
+  <!--<tr>
+    <td></td><td></td><td></td>
+  </tr>-->
+  <tr>
+    <td></td><td>Subtotal</td><td>$4</td>
+  </tr>
+<table>

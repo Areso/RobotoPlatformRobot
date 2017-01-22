@@ -1,0 +1,26 @@
+sudo nano /etc/modules
+  add lines, 2835 for 1st gen, 2836 for 2nd gen, 2837 for 3rd gen in first line:
+snd-bcm2837
+i2c-bcm2708
+i2c-dev
+
+sudo nano /etc/modprobe.d/raspi-blacklist.conf
+  comment with # both lines (if there are here)
+
+sudo nano /boot/config.txt, 
+  uncomment or add following lines
+dtparam=i2c_arm=on
+dtparam=i2s=on
+dtparam=spi=on
+
+sudo apt-get install -y python-smbus
+sudo apt-get install -y i2c-tools
+sudo raspi-config 
+  Advanced
+
+
+sudo raspi-config
+adv-enable i2c, spi
+reboot
+
+you should see spidev0.0 and spidev0.1 in dev
