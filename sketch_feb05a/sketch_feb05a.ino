@@ -8,6 +8,7 @@
   int pos = 0; //servo drive position
   int data [4];//array of data from RPi
   int x = 0;
+  bool direct = true;
   
 void setup() {
   Serial.begin(9600);//maximum speed for i2c is 9600 bits per second                        
@@ -16,19 +17,29 @@ void setup() {
   pinMode(MotorAPinA, OUTPUT);
   pinMode(MotorAPinB, OUTPUT);
   myservo.attach(6); //pin number for servo output
+  //myservo.write(60); 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  //mySpeed = 255;
+     analogWrite(MotorAPinA, 240);
+     analogWrite(MotorAPinB, 0); 
+  //analogWrite(MotorAPinA, 0);
+  //analogWrite(MotorAPinB, mySpeed);
 }
 
 void receiveData(int byteCount) { 
      data[0] = Wire.read();//speed
      mySpeed = data[0];
+     Serial.print("Speed is ");
+     Serial.print(mySpeed);
+     Serial.print("\t");
      data[1] = Wire.read();//wheel angle
      pos     = data[1];
      pos     = 180 - pos;
+     Serial.print(pos);
+     /*
      if (mySpeed <= 64) {
        mySpeed = 255-mySpeed*4;
        if (mySpeed < 0) {
@@ -52,6 +63,11 @@ void receiveData(int byteCount) {
          analogWrite(MotorAPinB, 0);
        }
      }
+     */
+     
+     //analogWrite(MotorAPinA, 240);
+     //analogWrite(MotorAPinB, 0); 
+     delay(1);
      myservo.write(pos);
      //Serial.print(data[0]);
      //Serial.print("\t");
