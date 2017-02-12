@@ -28,32 +28,39 @@ void receiveData(int byteCount) {
      mySpeed = data[0];
      data[1] = Wire.read();//wheel angle
      pos     = data[1];
+     pos     = 180 - pos;
      if (mySpeed <= 64) {
        mySpeed = 255-mySpeed*4;
        if (mySpeed < 0) {
          mySpeed = 0;
        }
+       Serial.print("revers ");
+       Serial.print(mySpeed);
+       Serial.print("\t");
        analogWrite(MotorAPinA, 0);
        analogWrite(MotorAPinB, mySpeed);
-     }
-     
-     if (mySpeed >= 128) {
-       mySpeed = 2*mySpeed-256;
-       if (mySpeed < 0) {
-         mySpeed = 0;
+     } else {
+       if (mySpeed >= 128) {
+         mySpeed = 2*mySpeed-256;
+         if (mySpeed < 0) {
+           mySpeed = 0;
+         }
+         Serial.print("forward ");
+         Serial.print(mySpeed);
+         Serial.print("\t");
+         analogWrite(MotorAPinA, mySpeed);
+         analogWrite(MotorAPinB, 0);
        }
-       analogWrite(MotorAPinA, mySpeed);
-       analogWrite(MotorAPinB, 0);
      }
      myservo.write(pos);
      //Serial.print(data[0]);
      //Serial.print("\t");
-     //Serial.print(data[1]);
-     //Serial.print("\t");
+     Serial.print(data[1]);
+     Serial.print("\t");
      //Serial.print(data[2]);
      //Serial.print("\t");
      //Serial.println(data[3]);
-     //Serial.print("----");
+     Serial.print("----");
   
 
 
