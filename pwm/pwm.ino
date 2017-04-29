@@ -19,7 +19,7 @@ void setup() {
   
   //For servo only 10 and 9 pins of Arduino Uno R3 could use (Timer/Counter T1 16 bit, with tick counter)
   myservo.attach(9); //pin number for servo output. 
-  myservo.write(90);
+  myservo.write(70);
 }
 
 void loop() {
@@ -49,6 +49,14 @@ void receiveData(int byteCount) {
        analogWrite(MotorAPinA, 0);
        analogWrite(MotorAPinB, mySpeed);
      } else {
+       if (mySpeed < 128) {
+         mySpeed = 0;
+         Serial.print("forward ");
+         Serial.print(mySpeed);
+         Serial.print("\t");
+         analogWrite(MotorAPinA, mySpeed);
+         analogWrite(MotorAPinB, 0);
+       }
        if (mySpeed >= 128) {
          mySpeed = 2*mySpeed-256;
          if (mySpeed < 0) {
