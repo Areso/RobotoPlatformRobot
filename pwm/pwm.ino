@@ -61,6 +61,9 @@ void receiveData(int byteCount) {
          if (mySpeed > 255) {
            mySpeed = 255;
          }
+         if (mySpeed < 0) {
+           mySpeed = 0;
+         }
          Serial.print("forward ");
          Serial.print(mySpeed);
          Serial.print("\t");
