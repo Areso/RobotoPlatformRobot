@@ -56,11 +56,10 @@ void receiveData(int byteCount) {
          Serial.print("\t");
          analogWrite(MotorAPinA, mySpeed);
          analogWrite(MotorAPinB, 0);
-       }
-       if (mySpeed >= 128) {
-         mySpeed = 2*mySpeed-256;
-         if (mySpeed < 0) {
-           mySpeed = 0;
+       } else {
+         mySpeed = 2*mySpeed-255;
+         if (mySpeed > 255) {
+           mySpeed = 255;
          }
          Serial.print("forward ");
          Serial.print(mySpeed);
